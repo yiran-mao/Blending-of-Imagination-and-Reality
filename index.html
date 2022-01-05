@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Blending of Imagination and Reality</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/template.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgb(181, 174, 166);
+        }
+
+        .grid-container {
+            background-color: rgb(196, 189, 181);
+            font-family: 'Lato', sans-serif;
+            color: white;
+            height: 768px;
+            overflow: hidden;
+        }
+
+        .row1 {
+            height: 168px;
+        }
+
+        .row2 {
+            height: 415px;
+        }
+
+        .row3 {
+            height: 175px;
+        }
+
+        .background-box {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 768px;
+            width: 1200px;
+            transition: 1.5s;
+        }
+
+        .title {
+            position: relative;
+            font-size: 37px;
+            line-height: 1.3;
+            font-weight: 700;
+            letter-spacing: 1px;
+            left: 40px;
+            top: 30px;
+            text-transform: uppercase;
+            z-index: 3;
+        }
+
+        .title-virtual {
+            position: relative;
+            font-size: 37px;
+            line-height: 1.25;
+            font-weight: 700;
+            letter-spacing: 1px;
+            left: 40px;
+            top: 75px;
+
+            z-index: 3;
+        }
+
+        .movies {
+            letter-spacing: 1px;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+            padding-top: 0px;
+            box-sizing: border-box;
+            z-index: 4;
+        }
+
+        .time {
+            letter-spacing: 1px;
+            font-weight: 700;
+            line-height: 1.2;
+            z-index: 3;
+        }
+
+        .intro {
+            letter-spacing: .5px;
+            width: 250px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.1;
+            z-index: 3;
+        }
+
+        .vertical {
+            transform: rotate(-90deg);
+            z-index: 3;
+            font-size: 14px;
+            letter-spacing: 1px;
+            font-weight: 700;
+
+        }
+
+        .director {
+            position: relative;
+            top: -15px;
+            right: 40px;
+            font-size: 37px;
+            font-weight: 700;
+            text-align: right;
+            z-index: 2;
+
+        }
+
+        .date {
+            position: relative;
+            top: -10px;
+            right: 40px;
+            font-size: 37px;
+            font-weight: 700;
+            text-align: right;
+            padding-top: 6px;
+            padding-bottom: 9px;
+            z-index: 2;
+        }
+
+        .informations {
+            position: relative;
+            color: white;
+            text-decoration: none;
+            top: -10px;
+            right: 40px;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+            text-align: right;
+            z-index: 2;
+        }
+
+        a:link {
+            color: white;
+            text-decoration: none;
+
+        }
+
+        a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        a:active {
+            color: white;
+        }
+
+        a:visited {
+            color: white;
+        }
+
+
+        /***********************tokyo godfathers************************/
+        .tokyo-godfathers {
+            position: absolute;
+            border-left: 3.5px solid white;
+            padding-left: 7px;
+            left: 200px;
+            top: 450px;
+            height: 42px;
+            transition: 1s;
+        }
+
+        .brown-circle {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            top: 440px;
+            left: 170px;
+            border-radius: 50%;
+            background-color: rgb(158, 117, 93);
+            transition: 1s;
+            z-index: 1;
+        }
+
+        .tokyo-godfathers-time {
+            position: absolute;
+            padding-left: 10px;
+            left: 200px;
+            top: 585px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .tokyo-godfathers-intro {
+            position: absolute;
+            padding-left: 15px;
+            left: 200px;
+            top: 480px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .tokyo-godfathers-date {
+            position: absolute;
+            left: 90px;
+            top: 500px;
+            transition: 1s;
+            color: rgb(255, 255, 255, 0);
+        }
+
+        .tokyo-godfathers:hover {
+            position: absolute;
+            left: 200px;
+            top: 400px;
+            transition: 1s;
+            height: 225px;
+        }
+
+        .tokyo-godfathers:hover~.brown-circle {
+            position: absolute;
+            top: 90px;
+            left: -180px;
+            height: 800px;
+            width: 800px;
+            z-index: 2;
+        }
+
+        .tokyo-godfathers:hover~.red-circle {
+            position: absolute;
+            transition-delay: 0.4s;
+            top: 100px;
+            left: 490px;
+        }
+
+        .tokyo-godfathers:hover~.tokyo-godfathers-intro {
+            z-index: 3;
+            top: 450px;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.4s;
+        }
+
+        .tokyo-godfathers:hover~.tokyo-godfathers-time {
+            z-index: 3;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+        }
+
+        .tokyo-godfathers:hover~.tokyo-godfathers-date {
+            z-index: 3;
+            position: absolute;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+            left: 120px;
+            top: 500px;
+        }
+
+        /***********************paprika************************/
+        .paprika {
+            position: absolute;
+            border-left: 3.5px solid white;
+            padding-left: 7px;
+            height: 18px;
+            top: 190px;
+            left: 490px;
+            transition: 1s;
+        }
+
+        .red-circle {
+            position: absolute;
+            top: 130px;
+            left: 450px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: rgb(191, 67, 61);
+            transition: 1s;
+            z-index: 1;
+        }
+
+        .paprika-time {
+            position: absolute;
+            padding-left: 10px;
+            left: 490px;
+            top: 290px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .paprika-intro {
+            position: absolute;
+            padding-left: 15px;
+            left: 490px;
+            top: 201px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .paprika-date {
+            position: absolute;
+            left: 380px;
+            top: 220px;
+            transition: 1s;
+            color: rgb(255, 255, 255, 0);
+        }
+
+        .paprika:hover {
+            position: absolute;
+            left: 490px;
+            top: 140px;
+            transition: 1s;
+            height: 190px;
+        }
+
+        .paprika:hover~.red-circle {
+            position: absolute;
+            top: -220px;
+            left: 100px;
+            height: 800px;
+            width: 800px;
+            z-index: 2;
+        }
+
+        .paprika:hover~.brown-circle {
+            position: absolute;
+            transition: 1s;
+            transition-delay: 0.4s;
+            top: 470px;
+            left: 125px;
+        }
+
+        .paprika:hover~.blue-circle {
+            position: absolute;
+            transition: 0.6s;
+            transition-delay: 0.7s;
+            top: 530px;
+            left: 690px;
+        }
+
+        .paprika:hover~.pink-circle {
+            position: absolute;
+            transition: 0.4s;
+            transition-delay: 0.8s;
+            top: 120px;
+            left: 910px;
+        }
+
+        .paprika:hover~.paprika-intro {
+            z-index: 3;
+            top: 171px;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.4s;
+        }
+
+        .paprika:hover~.paprika-time {
+            z-index: 3;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+        }
+
+        .paprika:hover~.paprika-date {
+            z-index: 3;
+            position: absolute;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+            left: 410px;
+            top: 220px;
+        }
+
+        /***********************perfect blue************************/
+        .perfect-blue {
+            position: absolute;
+            border-left: 3.5px solid white;
+            padding-left: 7px;
+            height: 42px;
+            top: 570px;
+            left: 690px;
+            transition: 1s;
+        }
+
+        .perfect-blue-time {
+            position: absolute;
+            padding-left: 10px;
+            left: 690px;
+            top: 685px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .perfect-blue-intro {
+            position: absolute;
+            padding-left: 15px;
+            left: 690px;
+            top: 600px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .perfect-blue-date {
+            position: absolute;
+            left: 580px;
+            top: 620px;
+            transition: 1s;
+            color: rgb(255, 255, 255, 0);
+        }
+
+        .perfect-blue:hover {
+            position: absolute;
+            left: 690px;
+            top: 520px;
+            transition: 1s;
+            height: 206px;
+        }
+
+        .perfect-blue:hover~.perfect-blue-time {
+            z-index: 3;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+        }
+
+        .perfect-blue:hover~.perfect-blue-intro {
+            z-index: 3;
+            top: 570px;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.4s;
+        }
+
+        .blue-circle {
+            position: absolute;
+            top: 520px;
+            left: 680px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: rgb(60, 78, 135);
+            transition: 1s;
+            z-index: 1;
+        }
+
+        .perfect-blue:hover~.blue-circle {
+            position: absolute;
+            top: 170px;
+            left: 330px;
+            height: 800px;
+            width: 800px;
+            z-index: 2;
+        }
+
+        .perfect-blue:hover~.red-circle {
+            position: absolute;
+            transition: 0.4s;
+            transition-delay: 0.8s;
+            top: 120px;
+            left: 440px;
+        }
+
+        .perfect-blue:hover~.pink-circle {
+            position: absolute;
+            transition: 0.4s;
+            transition-delay: 0.8s;
+            top: 115px;
+            left: 905px;
+        }
+
+        .perfect-blue:hover~.perfect-blue-date {
+            z-index: 3;
+            position: absolute;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+            left: 610px;
+            top: 620px;
+        }
+
+        /***********************millennium actress************************/
+        .millennium-actress {
+            position: absolute;
+            border-left: 4px solid white;
+            padding-left: 7px;
+            top: 130px;
+            left: 910px;
+            height: 42px;
+            transition: 1s;
+        }
+
+        .millennium-actress:hover {
+            position: absolute;
+            left: 910px;
+            top: 80px;
+            transition: 1s;
+            height: 216px;
+        }
+
+        .millennium-actress-intro {
+            position: absolute;
+            padding-left: 15px;
+            left: 910px;
+            top: 160px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .millennium-actress-time {
+            position: absolute;
+            padding-left: 10px;
+            left: 910px;
+            top: 255px;
+            color: rgb(255, 255, 255, 0);
+            transition: 0.6s;
+        }
+
+        .millennium-actress-date {
+            position: absolute;
+            left: 800px;
+            top: 180px;
+            transition: 1s;
+            color: rgb(255, 255, 255, 0);
+        }
+
+        .millennium-actress:hover~.millennium-actress-time {
+            z-index: 3;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+        }
+
+        .millennium-actress:hover~.millennium-actress-intro {
+            z-index: 3;
+            top: 130px;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.4s;
+        }
+
+        .pink-circle {
+            position: absolute;
+            top: 120px;
+            left: 900px;
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: rgb(176, 101, 105);
+            transition: 1s;
+            z-index: 1;
+        }
+
+        .millennium-actress:hover~.pink-circle {
+            position: absolute;
+            top: -230px;
+            left: 550px;
+            height: 800px;
+            width: 800px;
+            z-index: 2;
+        }
+
+        .millennium-actress:hover~.red-circle {
+            position: absolute;
+            top: 130px;
+            left: 435px;
+            transition-delay: 0.6s;
+        }
+
+        .millennium-actress:hover~.blue-circle {
+            position: absolute;
+            top: 525px;
+            left: 675px;
+            transition: 0.4s;
+            transition-delay: 0.7s;
+        }
+
+        .millennium-actress:hover~.millennium-actress-date {
+            z-index: 3;
+            position: absolute;
+            color: rgb(255, 255, 255, 1);
+            transition-delay: 0.5s;
+            left: 830px;
+            top: 180px;
+        }
+
+        /******************lines*******************/
+        .line {
+            z-index: 4;
+        }
+
+        .line1 {
+            background-color: white;
+            width: 205px;
+            height: 5px;
+            position: absolute;
+            left: 40px;
+            top: 195px;
+        }
+
+
+        .line2 {
+            background-color: white;
+            width: 50px;
+            height: 5px;
+            position: absolute;
+            left: 400px;
+            top: 700px;
+        }
+
+        .line3 {
+            background-color: white;
+            width: 5px;
+            height: 50px;
+            position: absolute;
+            left: 500px;
+            top: 400px;
+        }
+
+        .line4 {
+            background-color: white;
+            width: 5px;
+            height: 50px;
+            position: absolute;
+            left: 800px;
+            top: 30px;
+        }
+
+        .line5 {
+            background-color: white;
+            width: 50px;
+            height: 5px;
+            position: absolute;
+            left: 965px;
+            top: 550px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="grid-container">
+
+        <div class="row row1">
+            <div class="col-4">
+                <div class="title">Blending of Imagination and Reality</div>
+                <div class=" title-virtual">Virtual Film <br>Projection</div>
+
+            </div>
+        </div>
+        <div class="row row2">
+            <div class="tokyo-godfathers movies">Tokyo<br>Godfathers</div>
+            <div class="tokyo-godfathers-intro intro">One Christmas Eve, a middle-aged alcoholic Gin, a trans woman Hana, and a dependent runaway girl Miyuki discover an abandoned newborn while searching through the garbage. The baby was swaddled with a business card and photo of a bar.</div>
+            <div class="tokyo-godfathers-time time">November 18<br>4.00 pm</div>
+            <div class="tokyo-godfathers-date vertical">2003, 92 minutes</div>
+
+
+            <div class="paprika movies">Paprika</div>
+            <div class="paprika-time time">November 15<br>7.00 pm</div>
+            <div class="paprika-intro intro">Doctor Atsuko Chiba who works at a psychiatric institute, has developed a device called the DC MINI with Doctor Kosaku Tokita that can view and change patients' dreams. However, the device caused a series of accidents.</div>
+            <div class="paprika-date vertical">2003, 92 minutes</div>
+
+            <div class="perfect-blue movies">Perfect<br>Blue</div>
+            <div class="perfect-blue-time time">November 19<br>7.00 pm</div>
+            <div class="perfect-blue-intro intro">Mima Kirigoe, the member of a Japanese idol group decides to retire from music. When she becomes a victim of stalking, <br>Mima herself starts to lose her perception of reality and imagination. </div>
+            <div class="perfect-blue-date vertical">2006, 90 minutes</div>
+
+            <div class="millennium-actress movies">Millennium<br>Actress</div>
+            <div class="millennium-actress-time time">November 16<br>1.00 pm</div>
+            <div class="millennium-actress-intro intro">Genya Tachibana, a TV interviewer and his cameraman meet a former actress, Chiyoko Fujiwara and travel through her memories and career, which span various eras, from ancient Japan to the distant future.</div>
+            <div class="millennium-actress-date vertical">2001, 87 minutes</div>
+
+            <div class="brown-circle circle"></div>
+            <div class="red-circle circle"></div>
+            <div class="blue-circle circle"></div>
+            <div class="pink-circle circle"></div>
+            <div class="line1 line"></div>
+            <div class="line2 line"></div>
+            <div class="line3 line"></div>
+            <div class="line4 line"></div>
+            <div class="line5 line"></div>
+        </div>
+        <div class="row row3">
+
+            <div class="col-12">
+                <div class="director ">Satoshi Kon</div>
+                <div class="date ">11.15 - 11.22</div>
+                <div class="location informations">Dream Theater</div>
+                <div class="location informations"><a href="https://zoom.us/j/2364534331?pwd=dURtaVlUeG5FajNzeHVHcEQ3ajVUQT09" target="_blank">Zoom: 236 453 4331</a></div>
+                <div class="website informations"><a href="https://mdfilmfest.com" target="_blank">dreamtheater.com</a></div>
+                <div class="website-underline"></div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+</body></html>
